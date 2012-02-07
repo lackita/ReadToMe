@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<h3><%= @book.title %></h3>
+<h5>by <%= @book.author %></h5>
+
+<p>This book
+<% if @book.status == "Unread" %>
+  has not been
+<% elsif @bookstatus == "Reading" %>
+  is being
+<% else %>
+  has been
+<% end %>
+read.</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', books_path %>

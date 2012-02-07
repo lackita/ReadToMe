@@ -1,0 +1,18 @@
+<ul>
+<% @statuses.each do |status| %>
+  <li><%= link_to status, books_path(:status => status) %></li>
+<% end %>
+</ul>
+
+<table>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= link_to book.title, book %></td>
+      <td><%= book.author %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Book', new_book_path %>
