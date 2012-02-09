@@ -1,6 +1,7 @@
 Readtome::Application.routes.draw do
   get "/" => "books#index"
   resources :books
+  resources :chapters
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

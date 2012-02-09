@@ -31,7 +31,6 @@ class BooksController < ApplicationController
   # GET /books/new.json
   def new
     @book = Book.new
-    @book.status = "Pending"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,6 +47,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(params[:book])
+    @book.status = "Unread"
 
     respond_to do |format|
       if @book.save
