@@ -1,11 +1,11 @@
 <ul>
 <% @statuses.each do |status| %>
-  <li><%= link_to status, books_path(:status => status) %></li>
+  <li><%= link_to status, books_path(:status => status) %> (<%= @books[status].length %>)</li>
 <% end %>
 </ul>
 
 <table>
-  <% @books.each do |book| %>
+  <% @books[@current_status].each do |book| %>
     <tr>
       <td><%= link_to book.title, book %></td>
       <td><%= book.author %></td>

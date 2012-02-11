@@ -14,7 +14,7 @@ read.</p>
 
 <ul>
   <% @book.chapters.each do |chapter| %>
-    <li><%= chapter.name %> | <%= link_to 'Destroy', chapter, :confirm => 'Are you sure?', :method => :delete %> | <%= link_to 'Edit', edit_chapter_path(@chapter) %></li>
+    <li><%= link_to chapter.name, chapter.track.url %> | <%= link_to 'Destroy', chapter, :confirm => 'Are you sure?', :method => :delete %> | <%= link_to 'Edit', edit_chapter_path(@chapter) %></li>
   <% end %>
   <li><%= link_to "Add a chapter", new_chapter_path(:book_id => @book.id) %></li>
 </ul>

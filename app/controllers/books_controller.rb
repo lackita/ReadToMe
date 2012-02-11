@@ -3,12 +3,15 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     if params.has_key?(:status)
-      current_status = params[:status]
+      @current_status = params[:status]
     else
-      current_status = 'Read'
+      @current_status = 'Read'
     end
     @statuses = %w{Unread Reading Read}
-    @books = Book.find(:all, :order => "ordering", :conditions => {:status => current_status})
+    @books = Hash.new()
+    @statuses.each do |status|
+      @books[status] = Book.find(:all, :order => "ordering", :conditions => {:status => status})
+    end
 
     respond_to do |format|
       format.html # index.html.erb
