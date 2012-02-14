@@ -21,3 +21,46 @@ a {
 	text-decoration: none;
     }
 }
+
+div.main {
+    background-color: white;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    border: 1px solid #888;
+}
+
+.main h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.main ul {
+    list-style-type: none;
+    margin-top: 0;
+    padding-top: 5px;
+    padding-left: 0;
+    text-align: center;
+    background-color: #DDD;
+    border-bottom: 1px solid #888;
+}
+
+.main ul li {
+    display: inline;
+    background-color: #DDD;
+    border: 1px solid #888;
+    border-bottom: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #888;
+}
+
+.main ul li.selected {
+    background-color: #FFF;
+    border-bottom: 1px solid #FFF;
+}
+
+.main ul li a {
+    text-decoration: none;
+    padding: 5px;
+}

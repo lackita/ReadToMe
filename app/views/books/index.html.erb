@@ -1,7 +1,7 @@
 <ul>
-<% @statuses.each do |status| %>
-  <li><%= link_to status, books_path(:status => status) %> (<%= @books[status].length %>)</li>
-<% end %>
+  <% @statuses.each do |status| %>
+    <li <% if status == @current_status %> class="selected" <% end %>><%= link_to "#{status} (#{@books[status].length})", books_path(:status => status) %></li>
+  <% end %>
 </ul>
 
 <table>
