@@ -1,30 +1,32 @@
-<p id="notice"><%= notice %></p>
-<h3><%= @book.title %></h3>
-<h5>by <%= @book.author %></h5>
+<div style="padding: 10px">
+  <p id="notice"><%= notice %></p>
+  <h3><%= @book.title %></h3>
+  <h5>by <%= @book.author %></h5>
 
-<p>This book
-<% if @book.status == "Unread" %>
-  has not been
-<% elsif @book.status == "Reading" %>
-  is being
-<% else %>
-  has been
-<% end %>
-read.</p>
-
-<ul class="list">
-  <% @book.chapters.each do |chapter| %>
-    <li>
-      <div class="right">
-	<%= link_to 'Destroy', chapter, :confirm => 'Are you sure?', :method => :delete %>
-	<%= link_to 'Edit', edit_chapter_path(@chapter) %>
-      </div>
-      <%= link_to chapter.name, chapter.track.url %>
-    </li>
+  <p>This book
+  <% if @book.status == "Unread" %>
+    has not been
+  <% elsif @book.status == "Reading" %>
+    is being
+  <% else %>
+    has been
   <% end %>
-  <li class="last"><%= link_to "Add a chapter", new_chapter_path(:book_id => @book.id) %></li>
-</ul>
+  read.</p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %> |
-<%= link_to 'Back', books_path %>
+  <ul class="list">
+    <% @book.chapters.each do |chapter| %>
+      <li>
+	<div class="right">
+	  <%= link_to 'Destroy', chapter, :confirm => 'Are you sure?', :method => :delete %>
+	  <%= link_to 'Edit', edit_chapter_path(@chapter) %>
+	</div>
+	<%= link_to chapter.name, chapter.track.url %>
+      </li>
+    <% end %>
+    <li class="last"><%= link_to "Add a chapter", new_chapter_path(:book_id => @book.id) %></li>
+  </ul>
+
+  <%= link_to 'Edit', edit_book_path(@book) %> |
+  <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'Back', books_path %>
+</div>
