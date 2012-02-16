@@ -1,18 +1,15 @@
-<ul>
+<ul class="tabs">
   <% @statuses.each do |status| %>
     <li <% if status == @current_status %> class="selected" <% end %>><%= link_to "#{status} (#{@books[status].length})", books_path(:status => status) %></li>
   <% end %>
 </ul>
 
-<table>
+<ul class="list">
   <% @books[@current_status].each do |book| %>
-    <tr>
-      <td><%= link_to book.title, book %></td>
-      <td><%= book.author %></td>
-    </tr>
+    <li><%= link_to book.title, book %> <%= book.author %></li>
   <% end %>
-</table>
+  <li class="last"><%= link_to 'New Book', new_book_path %></li>
+</ul>
 
 <br />
 
-<%= link_to 'New Book', new_book_path %>

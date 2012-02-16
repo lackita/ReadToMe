@@ -36,7 +36,7 @@ div.main {
     padding: 20px;
 }
 
-.main ul {
+.main ul.tabs {
     list-style-type: none;
     margin-top: 0;
     padding-top: 5px;
@@ -46,7 +46,7 @@ div.main {
     border-bottom: 1px solid #888;
 }
 
-.main ul li {
+.main ul.tabs li {
     display: inline;
     background-color: #DDD;
     border: 1px solid #888;
@@ -55,12 +55,33 @@ div.main {
     border-bottom: 1px solid #888;
 }
 
-.main ul li.selected {
+.main ul.tabs li.selected {
     background-color: #FFF;
     border-bottom: 1px solid #FFF;
 }
 
-.main ul li a {
+.main ul.tabs li a {
     text-decoration: none;
     padding: 5px;
+}
+
+.main ul.list {
+    padding: 5px;
+    list-style-type: none;
+}
+
+.main ul.list li {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 5px;
+}
+
+.main ul.list li.last {
+    border-bottom: 1px solid black;
+}
+
+.right {
+    text-align: right;
+    float: right;
 }
