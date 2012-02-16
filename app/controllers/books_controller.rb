@@ -69,6 +69,10 @@ class BooksController < ApplicationController
   # PUT /books/1.json
   def update
     @book = Book.find(params[:id])
+    if params[:book][:complete]
+      params[:book].delete(:complete)
+      @book.status = "Read"
+    end
 
     respond_to do |format|
       if @book.update_attributes(params[:book])

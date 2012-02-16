@@ -26,6 +26,15 @@
     <li class="last"><%= link_to "Add a chapter", new_chapter_path(:book_id => @book.id) %></li>
   </ul>
 
+  <% if @book.status == "Reading" %>
+    <p>
+      <%= form_for @book do |f| %>
+        <%= f.hidden_field :complete, :value => 1 %>
+	<%= f.submit 'Complete' %>
+      <% end %>
+    </p>
+  <% end %>
+
   <%= link_to 'Edit', edit_book_path(@book) %> |
   <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to 'Back', books_path %>
