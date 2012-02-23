@@ -4,9 +4,12 @@ class BooksController < ApplicationController
   def index
     if params.has_key?(:status)
       @current_status = params[:status]
+    elsif session.has_key?(:recent_status)
+      @current_status = session[:recent_status]
     else
       @current_status = 'Read'
     end
+    session[:recent_status] = @current_status
     @statuses = %w{Unread Reading Read}
     @books = Hash.new()
     @statuses.each do |status|
