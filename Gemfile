@@ -8,6 +8,10 @@ gem 'rails', '3.1.0'
 gem 'json'
 gem 'paperclip'
 
+group :production, :staging do
+  gem 'pg'
+end
+
 group :development do
   gem 'sqlite3'
 end
