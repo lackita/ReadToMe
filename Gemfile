@@ -10,7 +10,6 @@ gem 'paperclip'
 
 group :production, :staging do
   gem 'pg'
-  gem 'aws-sdk'
 end
 
 group :development do
