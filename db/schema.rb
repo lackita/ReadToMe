@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211225308) do
+ActiveRecord::Schema.define(:version => 20131205124156) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20120211225308) do
     t.string   "track_content_type"
     t.integer  "track_file_size"
     t.datetime "track_updated_at"
+    t.decimal  "track_length"
   end
 
 end

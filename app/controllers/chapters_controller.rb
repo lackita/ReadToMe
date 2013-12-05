@@ -58,10 +58,6 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter = Chapter.find(params[:id])
     @chapter.destroy
-
-    respond_to do |format|
-      format.html { redirect_to @chapter.book }
-      format.json { head :ok }
-    end
+    redirect_to @chapter.book
   end
 end

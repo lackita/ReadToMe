@@ -16,10 +16,11 @@
   <ul class="list">
     <% @book.chapters.each do |chapter| %>
       <li>
+		<%= chapter.track_length.to_i / 60 %>:<%= (chapter.track_length.to_i % 60).to_s.rjust(2, padstr=0.to_s) %>
+		<%= link_to chapter.name, "/ReadToMe#{chapter.track.url}" %>
 		<div class="right">
 		  <%= link_to 'Edit', edit_chapter_path(chapter) %>
 		</div>
-		<%= link_to chapter.name, "/ReadToMe#{chapter.track.url}" %>
       </li>
     <% end %>
     <li class="last"><%= link_to "Add a chapter", new_chapter_path(:book_id => @book.id) %></li>

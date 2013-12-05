@@ -7,6 +7,7 @@ gem 'rails', '3.2.6'
 
 gem 'json'
 gem 'paperclip'
+gem 'taglib-ruby'
 
 group :production, :staging do
   gem 'pg'
