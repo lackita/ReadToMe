@@ -1,0 +1,12 @@
+<h1>Playlists</h1>
+
+<ul class="list">
+  <% @playlists.each do |playlist| %>
+    <li><%= link_to playlist.name, playlist %></li>
+    <!-- <td><%= link_to 'Edit', edit_playlist_path(playlist) %></td> -->
+    <!-- <td><%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+  <% end %>
+  <li class="last"><%= link_to 'New Playlist', new_playlist_path %></li>
+</ul>
+
+<br />

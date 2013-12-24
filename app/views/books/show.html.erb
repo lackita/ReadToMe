@@ -16,7 +16,12 @@
   <ul class="list">
     <% @book.chapters.each do |chapter| %>
       <li>
-		<%= chapter.track_length.to_i / 60 %>:<%= (chapter.track_length.to_i % 60).to_s.rjust(2, padstr=0.to_s) %>
+		<% if current_playlist.playlist_items.none? {|item| item.chapter == chapter } %>
+		  <%= link_to("+", "#{playlist_items_path}?chapter_id=#{chapter.id}&playlist_id=#{current_playlist.id}", :method => :post, :remote => true) %>
+		<% else %>
+		   <%= link_to("-", current_playlist.playlist_items.find_by_chapter_id(chapter.id), :method => :delete, :remote => true) %>
+		<% end %>
+		<%= chapter.displayed_track_length %>
 		<%= link_to chapter.name, "/ReadToMe#{chapter.track.url}" %>
 		<div class="right">
 		  <%= link_to 'Edit', edit_chapter_path(chapter) %>

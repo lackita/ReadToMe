@@ -10,4 +10,8 @@ class Chapter < ActiveRecord::Base
       self.track_length = mp3.audio_properties.length / 60
     end
   end
+
+  def displayed_track_length
+    "#{track_length.to_i / 60}:#{(track_length.to_i % 60).to_s.rjust(2, padstr=0.to_s)}"
+  end
 end

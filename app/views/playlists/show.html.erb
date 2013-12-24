@@ -1,0 +1,23 @@
+<div style="padding: 10 px">
+  <p id="notice"><%= notice %></p>
+  <h3><%= @playlist.name %></h3>
+
+  <ul class="list">
+	<% @playlist.playlist_items.each do |playlist_item| %>
+	  <li<% if playlist_item == @playlist.playlist_items.last %> class="last"<% end %>>
+		<%= playlist_item.chapter.displayed_track_length %>
+		<%= playlist_item.chapter.book.title %>
+		<%= playlist_item.chapter.name %>
+		<div class="right">
+		  <%= link_to 'Remove', playlist_item, :method => :delete %>
+		</div>
+	  </li>
+	<% end %>
+  </ul>
+
+  <%= link_to 'Edit', edit_playlist_path(@playlist) %> |
+  <%= link_to 'Back', playlists_path %>
+  <div class="right">
+	<%= link_to 'Destroy', @playlist, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+</div>
