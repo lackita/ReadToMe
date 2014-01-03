@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20131225151602) do
   create_table "books", :force => true do |t|
     t.string   "title"
     t.integer  "ordering"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "author"
     t.string   "status"
   end
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20131225151602) do
   create_table "chapters", :force => true do |t|
     t.integer  "book_id"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "track_file_name"
     t.string   "track_content_type"
     t.integer  "track_file_size"
