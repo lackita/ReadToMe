@@ -11,7 +11,7 @@
 <body>
   <div class="main">
     <h1>Read to Me</h1>
-	<%= link_to 'playlist', playlists_path %>: <%= link_to current_playlist.name, current_playlist %>
+	<%= link_to 'playlist', playlists_path %>: <%= link_to current_playlist.name, current_playlist %> (<%= link_to 'start', play_playlist_path(current_playlist) %>)
 	<div class="right"><%= link_to 'books', books_path %></div>
   </div>
   <div class="main">

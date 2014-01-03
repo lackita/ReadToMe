@@ -17,9 +17,9 @@
     <% @book.chapters.each do |chapter| %>
       <li>
 		<% if current_playlist.playlist_items.none? {|item| item.chapter == chapter } %>
-		  <%= link_to("+", "#{playlist_items_path}?chapter_id=#{chapter.id}&playlist_id=#{current_playlist.id}", :method => :post, :remote => true) %>
+		  <%= link_to("+", "#{playlist_items_path}?chapter_id=#{chapter.id}&playlist_id=#{current_playlist.id}", :method => :post, :remote => true, :chapter_playlist_link => chapter.id) %>
 		<% else %>
-		   <%= link_to("-", current_playlist.playlist_items.find_by_chapter_id(chapter.id), :method => :delete, :remote => true) %>
+		  <%= link_to("-", current_playlist.playlist_items.find_by_chapter_id(chapter.id), :method => :delete, :remote => true, :chapter_playlist_link => chapter.id) %>
 		<% end %>
 		<%= chapter.displayed_track_length %>
 		<%= link_to chapter.name, "/ReadToMe#{chapter.track.url}" %>

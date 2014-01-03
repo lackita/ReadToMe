@@ -1,3 +1,5 @@
+require 'tempfile'
+
 class PlaylistsController < ApplicationController
   # GET /playlists
   # GET /playlists.json
@@ -79,5 +81,21 @@ class PlaylistsController < ApplicationController
       format.html { redirect_to playlists_url }
       format.json { head :no_content }
     end
+  end
+
+  def choose
+    session[:playlist] = Playlist.find(params[:id])
+    redirect_to playlists_url
+  end
+
+  def play
+    @playlist = Playlist.find(params[:id])
+    unless @playlist.mp3_file_name
+      outfile = Tempfile.new("playlist#{params[:id]}")
+      system("cat #{@playlist.playlist_items.map {|item| item.chapter.track.path}.join(" ")} > #{outfile.path}.mp3") or raise "problem with system"
+      @playlist.mp3 = File.open("#{outfile.path}.mp3")
+      @playlist.save!
+    end
+    redirect_to @playlist.mp3.url
   end
 end

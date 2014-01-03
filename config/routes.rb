@@ -2,7 +2,12 @@ Readtome::Application.routes.draw do
   get "/" => "books#index"
   resources :books
   resources :chapters
-  resources :playlists
+  resources :playlists do
+    member do
+      get 'choose'
+      get 'play'
+    end
+  end
   resources :playlist_items
 
   # The priority is based upon order of creation:
