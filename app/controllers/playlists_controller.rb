@@ -96,6 +96,6 @@ class PlaylistsController < ApplicationController
       @playlist.mp3 = File.open("#{outfile.path}.mp3")
       @playlist.save!
     end
-    redirect_to @playlist.mp3.url
+    redirect_to "/ReadToMe#{@playlist.mp3.url}"
   end
 end
